@@ -54,36 +54,6 @@
         "facebook": "https://facebook.com/"
     },
     "skills": {
-        "technology": {
-            "icon": "💻",
-            "title": "Technology",
-            "items": [
-                {
-                    "icon": "🌐",
-                    "name": "Web Development"
-                },
-                {
-                    "icon": "�",
-                    "name": "Python"
-                },
-                {
-                    "icon": "⚡",
-                    "name": "HTML / CSS / JS"
-                },
-                {
-                    "icon": "⚛️",
-                    "name": "React"
-                },
-                {
-                    "icon": "🟢",
-                    "name": "Node.js"
-                },
-                {
-                    "icon": "�",
-                    "name": "Firebase"
-                }
-            ]
-        },
         "ai": {
             "icon": "🤖",
             "title": "AI & Data",
