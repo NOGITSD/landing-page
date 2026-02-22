@@ -39,9 +39,9 @@
         }
     ],
     "stats": {
-        "projects": 3,
-        "yearsExperience": 1,
-        "techStack": 5
+        "projects": 10,
+        "yearsExperience": 2,
+        "techStack": 8
     },
     "contact": {
         "email": "nattawutnapanphol@gmail.com",
@@ -127,6 +127,7 @@
                 "AI"
             ],
             "hue": 140,
+            "image": "assets/projects/aspro.jpg",
             "github": "https://github.com/anmanhani-ai/robot",
             "demo": "https://github.com/anmanhani-ai/robot"
         },
