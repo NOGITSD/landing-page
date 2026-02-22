@@ -11,6 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!response.ok) throw new Error('Failed to fetch data');
       const data = await response.json();
       populateData(data);
+      // Re-observe dynamically added .reveal elements
+      const dynReveals = document.querySelectorAll('.reveal:not(.visible)');
+      if (dynReveals.length > 0) {
+        const dynObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        dynReveals.forEach(el => dynObserver.observe(el));
+      }
     } catch (error) {
       console.error('Error loading data:', error);
     }
@@ -146,14 +156,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         article.innerHTML = `
           <div class="project-image">
-            <div class="project-img-placeholder" style="--hue:${p.hue || 200}">
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64">
-                <rect x="10" y="28" width="44" height="20" rx="4" />
-                <circle cx="20" cy="52" r="5" />
-                <circle cx="44" cy="52" r="5" />
-                <path d="M28 28v-8h8v8M32 12v8M24 16h16" />
-              </svg>
-            </div>
+            ${p.image
+            ? `<img src="${p.image}" alt="${p.name}" class="project-img-real" loading="lazy">`
+            : `<div class="project-img-placeholder" style="--hue:${p.hue || 200}">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64">
+                  <rect x="10" y="28" width="44" height="20" rx="4" />
+                  <circle cx="20" cy="52" r="5" />
+                  <circle cx="44" cy="52" r="5" />
+                  <path d="M28 28v-8h8v8M32 12v8M24 16h16" />
+                </svg>
+              </div>`
+          }
             <div class="project-overlay">
               <div class="overlay-links">
                 <a href="${p.github}" target="_blank" rel="noopener" class="overlay-btn" title="Source Code">
