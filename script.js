@@ -131,12 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3 class="skill-category-title">
             <span class="cat-icon">${cat.icon}</span> ${cat.title}
           </h3>
-          <div class="skill-bar-container">
-            <div class="skill-bar-label">${cat.title} Expertise</div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="--percent:80%"><span>80%</span></div>
-            </div>
-          </div>
           <div class="skill-items">${itemsHtml}</div>
         `;
         skillsGrid.appendChild(catDiv);
@@ -218,12 +212,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (data.social) {
       const navGithub = document.getElementById('navGithub');
       const socialGithub = document.getElementById('socialGithub');
-      const socialLinkedin = document.getElementById('socialLinkedin');
+      const socialLine = document.getElementById('socialLine');
       const socialFacebook = document.getElementById('socialFacebook');
 
       if (navGithub && data.social.github) navGithub.href = data.social.github;
       if (socialGithub && data.social.github) socialGithub.href = data.social.github;
-      if (socialLinkedin && data.social.linkedin) socialLinkedin.href = data.social.linkedin;
+      if (socialLine && data.social.line) socialLine.href = data.social.line;
       if (socialFacebook && data.social.facebook) socialFacebook.href = data.social.facebook;
     }
   }
